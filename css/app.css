@@ -1,26 +1,19 @@
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth !important;
+    scrollbar-width: none !important;
 }
 
 body {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Josefin Sans', sans-serif !important;
     padding: 0 !important;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-body::-webkit-scrollbar {
-    display: none;
 }
 
 .font-esthetic {
     font-family: 'Sacramento', cursive !important;
-    color: #ffffff !important;
 }
 
 .font-arabic {
     font-family: 'Noto Naskh Arabic', serif !important;
-    color: #ffffff !important;
 }
 
 .img-crop {
@@ -40,18 +33,23 @@ body::-webkit-scrollbar {
 
 .btn-music {
     position: fixed;
-    bottom: 9vh;
-    right: 2vh;
-    z-index: 1055;
+    bottom: 9vh !important;
+    right: 2vh !important;
+    z-index: 1055 !important;
+}
+
+.btn-theme {
+    position: fixed;
+    bottom: 15vh !important;
+    right: 2vh !important;
+    z-index: 1055 !important;
 }
 
 .loading-page {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0 !important;
     width: 100%;
     height: 100%;
-    background-color: #111111;
     z-index: 1056 !important;
 }
 
@@ -62,7 +60,6 @@ body::-webkit-scrollbar {
 .mouse-animation {
     padding: 0.25rem 0.625rem;
     height: 2rem;
-    border: 0.1rem solid #ffffff;
     border-radius: 1.4rem;
     opacity: 0.75;
     box-sizing: content-box;
@@ -70,6 +67,7 @@ body::-webkit-scrollbar {
 
 @keyframes scroll {
     0% {
+        transform: translateY(1rem);
         opacity: 0;
     }
 
@@ -79,7 +77,7 @@ body::-webkit-scrollbar {
     }
 
     100% {
-        transform: translateY(1rem);
+        transform: translateY(0);
         opacity: 0;
     }
 }
@@ -88,21 +86,59 @@ body::-webkit-scrollbar {
     width: 0.25rem;
     height: 0.625rem;
     border-radius: 25%;
-    background-color: #ffffff;
+    background-color: #808080;
     animation-name: scroll;
     animation-duration: 2.5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 
+@keyframes spin-icon {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spin-button {
+    animation: spin-icon 5s linear infinite;
+}
+
+@keyframes love {
+    50% {
+        transform: translateY(1rem);
+    }
+}
+
+.animate-love {
+    animation: love 5s ease-in-out infinite;
+}
+
 .dark-section {
-    background-color: #111111 !important;
-    margin-top: -5px;
-    margin-bottom: -5px;
+    margin-top: -0.5rem;
+    margin-bottom: -0.5rem;
 }
 
 footer {
-    background-color: #111111 !important;
-    margin-top: -5px;
-    padding-bottom: 4rem;
+    margin-top: -0.5rem;
+    padding-bottom: 5rem;
+}
+
+.bg-theme-light {
+    background-color: var(--bs-gray-100);
+}
+
+.bg-theme-dark {
+    background-color: var(--bs-gray-800);
+}
+
+.color-theme-white {
+    color: white;
+}
+
+.color-theme-black {
+    color: black;
 }
